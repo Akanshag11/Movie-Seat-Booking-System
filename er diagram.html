@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<!-- saved from url=(0083)https://vertabelo.com/blog/a-database-model-for-a-movie-theater-reservation-system/ -->
+<html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> How to Design a Database Model for a Movie Theater Reservation System | Vertabelo Database Modeler </title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    
+    <meta name="google-site-verification" content="6HBIOT_mJGw-seVYbgcFTk0gYVXUFRTd-PZFj1t-Sv4">
+    
+    
+    
+      <meta name="ROBOTS" content="INDEX, FOLLOW">
+    
+
+
+    
+    
+  
+
+    <link rel="stylesheet" href="./er diagram_files/all.css" integrity="sha384-Mmxa0mLqhmOeaE8vgOSbKacftZcsNYDjQzuCOm6D02luYSzBG8vpaOykv9lFQ51Y" crossorigin="anonymous">
+    
+    
+    
+    
+    
+    
+    
+    <link href="./er diagram_files/main.css" rel="stylesheet">
+    
+
+    <script async="" src="./er diagram_files/gtm.js.download"></script><script type="text/javascript" src="./er diagram_files/jquery.min.js.download"></script>
+    <script type="text/javascript" src="./er diagram_files/slick.min.js.download"></script>
+
+    <script type="text/javascript" src="./er diagram_files/jquery.plugin.js.download"></script>
+    <script type="text/javascript" src="./er diagram_files/jquery.sticky.js.download"></script>
+    <script type="text/javascript" src="./er diagram_files/academy.min.js.download"></script>
+    <script type="text/javascript" src="./er diagram_files/pricing.min.js.download"></script>
+    <script type="text/javascript" src="./er diagram_files/jQuery.progressBar.min.js.download"></script>
+
+    
+   
+    
+
+    
+      
+<link rel="shortcut icon" href="https://vertabelo.com/blog-img/Favicon2.png" type="image/x-icon">
+
+    
+
+    
+
+    <meta property="og:title" content="How to Design a Database Model for a Movie Theater Reservation System">
+<meta property="og:description" content="Do you like going to the movies? Have you ever considered what the database design behind their reservation system looks like? In this article we’ll prepare an example database model for a movie theater.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://vertabelo.com/blog/a-database-model-for-a-movie-theater-reservation-system/"><meta property="article:published_time" content="2015-07-31T00:00:00+00:00">
+<meta property="article:modified_time" content="2016-03-03T00:00:00+00:00"><meta property="og:site_name" content="Vertabelo Data Modeler">
+<meta property="article:publisher" content="https://www.facebook.com/VertabeloAcdm">
+<meta property="article:section" content="blog">
+<meta property="article:tag" content="example data model">
+<meta property="article:tag" content="example ER diagram">
+<meta property="article:tag" content="example ERD diagram">
+<meta property="article:tag" content="database model">
+<meta property="article:tag" content="template">
+<meta property="article:tag" content="tutorial">
+
+<meta itemprop="name" content="How to Design a Database Model for a Movie Theater Reservation System">
+<meta itemprop="description" content="Do you like going to the movies? Have you ever considered what the database design behind their reservation system looks like? In this article we’ll prepare an example database model for a movie theater.">
+
+
+<meta itemprop="datePublished" content="2015-07-31T00:00:00+00:00">
+<meta itemprop="dateModified" content="2016-03-03T00:00:00+00:00">
+<meta itemprop="wordCount" content="1012">
+
+
+
+<meta itemprop="keywords" content="example data model,example ER diagram,example ERD diagram,database model,template,tutorial,database design,">
+
+<meta name="twitter:title" content="How to Design a Database Model for a Movie Theater Reservation System">
+<meta name="twitter:description" content="Do you like going to the movies? Have you ever considered what the database design behind their reservation system looks like? In this article we’ll prepare an example database model for a movie theater.">
+<meta name="twitter:site" content="@https://twitter.com/Vertabelo">
+
+
+
+
+<meta property="og:locale" content="en_US">
+
+
+    
+        
+            
+<meta property="og:image" content="https://vertabelo.com/blog/a-database-model-for-a-movie-theater-reservation-system/buy-theater-tickets-online.png">
+<meta property="og:image:secure_url" content="https://vertabelo.com/blog/a-database-model-for-a-movie-theater-reservation-system/buy-theater-tickets-online.png">
+<meta property="og:image:width" content="735">
+<meta property="og:image:height" content="364">
+<meta property="og:image:alt" content="&quot;&quot;">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="https://vertabelo.com/blog/a-database-model-for-a-movie-theater-reservation-system/buy-theater-tickets-online.png">
+            
+        
+
+
+<meta name="description" content="Do you like going to the movies? Have you ever considered what the database design behind their reservation system looks like? In this article we’ll prepare an example database model for a movie theater.">
+
+<meta property="twitter:creator" content="@Vertabelo">
+<link rel="canonical" href="https://vertabelo.com/blog/a-database-model-for-a-movie-theater-reservation-system/">
+
+
+<link rel="icon" href="https://vertabelo.com/blog-img/cropped-logo_Academy_transparent-32x32.png" sizes="32x32">
+<link rel="icon" href="https://vertabelo.com/blog-img/cropped-logo_Academy_transparent-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://vertabelo.com/blog-img/cropped-logo_Academy_transparent-180x180.png">
+<meta name="msapplication-TileImage" content="https://vertabelo.com/blog-img/cropped-logo_Academy_transparent-270x270.png">
+
+
+      
+    
+
+    <link rel="stylesheet" type="text/css" href="./er diagram_files/shCore.css"><link rel="stylesheet" type="text/css" href="./er diagram_files/shThemeDefault.css"><style type="text/css" id="syntaxhighlighteranchor"></style>
+    <script type="text/javascript" src="./er diagram_files/shCore.js.download"></script>
+<script type="text/javascript" src="./er diagram_files/shBrushSql.js.download"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "/blog-css/syntaxhighlighter3/shCore.css?ver=3.0.9b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "/blog-css/syntaxhighlighter3/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['auto-links'] = false;
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+
+    <script type="text/javascript">
+	window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"\/blog-js\/wp-emoji\/wp-emoji-release.min.js?ver=4.9.8"}};
+	!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+</script><script src="./er diagram_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+
+    
+      
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5QPZ2NT');
+</script>
+    
+    
+
+  <script type="text/javascript" src="./er diagram_files/api.js.download"></script></head>
+
+  <body class="">
+    
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5QPZ2NT" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+    
+<header class="site-header sites nav-up">
+<nav role="navigation">
+  <div class="site-navigation">
+    <div class="site-logo">
+      <a href="https://vertabelo.com/" class="site-logo">
+        <img src="./er diagram_files/logo_dark.png" alt="Vertabelo">
+      </a>
+    </div>
+    <div class="main-menu">
+      
+        <ul class="">
+          
+            
+            <li class="main-menu__item features"><a href="https://vertabelo.com/features">Features</a></li>
+          
+            
+            <li class="main-menu__item pricing"><a href="https://vertabelo.com/pricing">Pricing</a></li>
+          
+            
+            <li class="main-menu__item academy"><a href="https://vertabelo.com/academy">Academy</a></li>
+          
+            
+            <li class="main-menu__item learnsql"><a href="https://learnsql.com/">Learn SQL</a></li>
+          
+            
+              
+            
+            <li class="main-menu__item login"><a href="https://my.vertabelo.com/login">Log in</a></li>
+          
+            
+              
+            
+            <li class="main-menu__item singup"><a href="https://my.vertabelo.com/sign-up/create-account">Sign up</a></li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+    </div>
+    
+    <div class="siteHeaderHome-navigation-layer-menu pages">
+      <span class="siteHeaderHome-navigation-layer-menu-cover">MENU</span>
+      <span class="siteHeaderHome-navigation-layer-menu-cover-active">CLOSE</span>
+    <div class="siteHeaderHome-navigation-layer-menu-icon pages"><input type="checkbox"></div>
+    </div>
+    <div class="siteHeaderHome-navigation-hamburger-wrapper pages">
+      <div class="siteHeaderHome-navigation-hamburger-layout">
+        <ul class="siteHeaderHome-navigation-hamburger">
+          <li class="siteHeaderHome-navigation-hamburger-item pages"><a class="siteHeaderHome-navigation-hamburger-link" href="https://vertabelo.com/" title="Home page">Home</a></li><li class="siteHeaderHome-navigation-hamburger-item"><a class="siteHeaderHome-navigation-hamburger-link" href="https://vertabelo.com/features" title="Features page">Features</a></li>
+          <li class="siteHeaderHome-navigation-hamburger-item"><a class="siteHeaderHome-navigation-hamburger-link" href="https://vertabelo.com/pricing" title="Pricing page">Pricing</a></li>
+          <li class="siteHeaderHome-navigation-hamburger-item"><a class="siteHeaderHome-navigation-hamburger-link" href="https://vertabelo.com/academy" title="Academy page">Academy</a></li>
+          <li class="siteHeaderHome-navigation-hamburger-item"><a class="siteHeaderHome-navigation-hamburger-link" href="https://learnsql.com/" title="Learn SQL page">Learn SQL</a></li>
+          
+        </ul>
+        <ul class="siteHeaderHome-navigation-below">
+          <li class="siteHeaderHome-navigation-below-item"><a class="below-item-link" href="https://my.vertabelo.com/login">Log in</a></li>
+          <li class="siteHeaderHome-navigation-below-item"><a class="button" href="https://my.vertabelo.com/sign-up/create-account">Sign up</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+  </div>
+</nav>
+
+
+
+</header>
+
+
+
+
+    
+
+<div class="site-content post-container" id="sticky_container">
+  <article>
+    <header class="blog-post-intro">
+      
+
+
+
+    
+    
+      
+    
+
+    
+    
+    
+    
+
+
+
+
+<div class="blog-post-featured-image blog-list-feature-image tall" style="background-image:url(&#39;/blog/a-database-model-for-a-movie-theater-reservation-system/buy-theater-tickets-online.png&#39;)">
+
+  
+</div>
+
+
+      <a class="blog-post-intro-link" href="https://vertabelo.com/blog/"><img class="ico_arrow" src="./er diagram_files/ico_arrow.png"> <span class="read-more-link">Back to articles list</span></a>
+      <div class="blog-post-header">
+        <span class="ico_clock"><img src="./er diagram_files/ico_clock.png"></span>
+        <time class="summary-time" datetime="2015-07-31T00:00:00Z">July 31, 2015</time>
+        <span class="blog-post-reading-time">-</span>
+        <span class="blog-post-reading-time"> 5 minutes read</span>
+        <div class="blog-post-category-header"><a class="blog-post-category" href="https://vertabelo.com/blog/example_er_diagrams">Example er diagrams</a>
+</div>
+        <h1 class="blog-post-header-title">How to Design a Database Model for a Movie Theater Reservation System</h1>
+              <div class="summary-blog-post-meta">
+         
+     
+        
+
+  
+  <div class="summary-blog-post-meta-author">
+  
+
+    
+      
+      <a href="https://vertabelo.com/authors/emil-drkusic/">
+        
+        
+        
+        <span class="img summary-blog-post-meta-author-img"><img src="./er diagram_files/emil-drkusic_hu906145c8be8fbce48eb9af1ea1c4a863_24343_32x32_fill_box_center_2.png" alt=""></span>
+      
+      <span class="summary-blog-post-meta-author-info">
+        <span class="summary-blog-post-meta-author-name">Emil Drkušić</span>
+      <span class="summary-blog-post-meta-author-position"><p>Database designer and developer, financial analyst.</p>
+</span>
+      </span>
+      </a>
+  
+
+  </div>
+  
+
+
+</div>
+
+
+        
+<div class="summary-tags">
+  <ul class="summary-tags-list">
+      <div class="summary-tags-title">Tags:</div>
+      
+       <li class="summary-tags-list-element">
+         <a href="https://vertabelo.com/tags/example-data-model">example data model</a>
+       </li>
+      
+       <li class="summary-tags-list-element">
+         <a href="https://vertabelo.com/tags/example-er-diagram">example ER diagram</a>
+       </li>
+      
+       <li class="summary-tags-list-element">
+         <a href="https://vertabelo.com/tags/example-erd-diagram">example ERD diagram</a>
+       </li>
+      
+       <li class="summary-tags-list-element">
+         <a href="https://vertabelo.com/tags/database-model">database model</a>
+       </li>
+      
+       <li class="summary-tags-list-element">
+         <a href="https://vertabelo.com/tags/template">template</a>
+       </li>
+      
+       <li class="summary-tags-list-element">
+         <a href="https://vertabelo.com/tags/tutorial">tutorial</a>
+       </li>
+      
+       <li class="summary-tags-list-element">
+         <a href="https://vertabelo.com/tags/database-design">database design</a>
+       </li>
+      
+    </ul>
+</div>
+
+
+        
+ 
+      </div>
+    </header>
+    <div class="blog-post-main blog-post-container" style="position: relative;">
+        <div></div><span class="social_ico is-sticky sticky" id="sticky-ico" style="position: absolute; top: 693.359px;">
+            
+        </span>
+      <div class="blog-post-main-content">
+<p class="article_lead">Do you like going to the movies? Have you ever considered what the database design behind their reservation system looks like? In this article we’ll prepare an example database model for a movie theater.</p>
+        
+<p>There are a few assumptions we have to bear in mind: </p>
+
+<ul style="margin-top: 10px">
+  <li>contemporary multiplex movie theaters can have one or more auditoriums within a larger complex,</li>
+  <li>each auditorium can have a different number of seats,</li>
+  <li>seats are numerated with row number and seat position within a row,</li>
+  <li>a movie can have multiple screenings at different times, or it can be screened simultaneously in a different auditorium,</li>
+  <li>for each screening a seat can be reserved/sold only once,</li>
+  <li>we want to track who entered each reservation/sale into the system.</li>
+</ul>
+
+      <p>Let’s look at one possible database design to solve this problem (the model was created with <a href="https://my.vertabelo.com/try" target="_blank" title="Design your database online. Try for free without registration!">Vertabelo</a> for MySQL database):</p>
+
+
+      
+      <br>
+        
+<script>if (typeof VertabeloEmbededObject === 'undefined') {var VertabeloEmbededObject = "loading";var s=document.createElement("script");s.setAttribute("type","text/javascript");s.setAttribute("src", "https://my.vertabelo.com/js/public-model/v1/api.js");(document.getElementsByTagName("head")[0] || document.documentElement ).appendChild(s);}</script>
+      <div class="vertabelo-public-model" data-adjustsize="" data-height="620" data-logotype="created_with" data-modelgid="4XhZeJuPpJ23MK5275TPlroURQSrvDFRQqS0ovlwTrjQQtSS6WB2GohUFCMpKRe8" data-openlabel="EDIT MODEL IN YOUR BROWSER" data-width="735" data-x="3664" data-y="4105" data-zoom="1.0000" style="border: 1px solid rgb(170, 170, 170); width: 700px; height: 592.857px;" data-loaded="yes"><div style="position:relative;z-index:1;width:100%;height:100%;overflow:hidden;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border:1px solid #c6c6c6"><div id="opensvg_4XhZeJuPpJ23MK5275TPlroURQSrvDFRQqS0ovlwTrjQQtSS6WB2GohUFCMpKRe8" style="position:absolute;bottom:0;left:0;width:100%;height:50px;background-color:#eee;text-align:center" class="vertabelo-caption"><div title="EDIT MODEL IN YOUR BROWSER" class="vertabelo-open-button" style="display: inline-block; vertical-align: top; text-align: center; font: 13px / 26px Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); background: rgb(0, 102, 204); margin-top: 10px; padding: 3px 15px; border-radius: 5px; max-width: 446px; height: 25px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer;">EDIT MODEL IN YOUR BROWSER</div></div><div style="display: block; position: absolute; bottom: 13px; right: 10px;"><div id="zoomOut_4XhZeJuPpJ23MK5275TPlroURQSrvDFRQqS0ovlwTrjQQtSS6WB2GohUFCMpKRe8" class="vertabelo-zoom-out-button" style="display:inline-block;vertical-align:top;margin:0px 5px;width:20px;height:20px;cursor:pointer;background: url(&#39;https://my.vertabelo.com/img/api/zoom-out-icon.png&#39;) no-repeat center center;"></div><div id="zoomReset_4XhZeJuPpJ23MK5275TPlroURQSrvDFRQqS0ovlwTrjQQtSS6WB2GohUFCMpKRe8" class="vertabelo-reset-zoom-button" style="display:inline-block;vertical-align:top;margin:0px 5px;width:20px;height:20px;cursor:pointer;background: url(&#39;https://my.vertabelo.com/img/api/reset-zoom-icon.png&#39;) no-repeat center center;"></div><div id="zoomIn_4XhZeJuPpJ23MK5275TPlroURQSrvDFRQqS0ovlwTrjQQtSS6WB2GohUFCMpKRe8" class="vertabelo-zoom-in-button" style="display:inline-block;vertical-align:top;margin:0px 5px;width:20px;height:20px;cursor:pointer;background: url(&#39;https://my.vertabelo.com/img/api/zoom-in-icon.png&#39;) no-repeat center center;"></div></div><div id="logo_4XhZeJuPpJ23MK5275TPlroURQSrvDFRQqS0ovlwTrjQQtSS6WB2GohUFCMpKRe8" style="position:absolute;bottom:0;background-size:contain;background-repeat:no-repeat;width:60px;height:21px;margin-right:15px;margin-bottom:14px;margin-left:15px;background-image:url(&#39;https://my.vertabelo.com/img/api/created-big-transparent.png&#39;)"></div><div id="svg_4XhZeJuPpJ23MK5275TPlroURQSrvDFRQqS0ovlwTrjQQtSS6WB2GohUFCMpKRe8" style="position:absolute;z-index:-1;top:0;left:0;bottom:50px;width:100%;background:white;cursor:move"><svg xmlns="http://www.w3.org/2000/svg" height="539" width="696" viewBox="4 -6 695.9999999999995 538.9999999999997"><desc>{"leftTopX": 3668, "leftTopY": 4117, "rightBottomX": 4393, "rightBottomY": 4650}</desc><g transform="translate(0.5,0.5)"><g class="reference"><polyline fill="none" points="589.0,485.0 635.0,485.0 635.0,345.0" stroke="black" stroke-linejoin="miter"></polyline><g class="cardinality"><line stroke="black" stroke-width="1.0" x1="635.0" x2="629.0" y1="402.0" y2="387.0"></line><line stroke="black" stroke-width="1.0" x1="635.0" x2="641.0" y1="402.0" y2="387.0"></line><g transform="translate(635.0,402.0)"><circle fill="white" r="3.5" stroke="black" stroke-width="1.0"></circle></g></g><g class="mandatory"><line stroke="black" stroke-width="1.0" x1="629.0" x2="641.0" y1="435.0" y2="435.0"></line></g></g><g class="reference"><polyline fill="none" points="58.0,512.0 140.0,512.0 140.0,475.0 344.0,475.0" stroke="black" stroke-linejoin="miter"></polyline><g class="cardinality"><line stroke="black" stroke-width="1.0" x1="258.0" x2="273.0" y1="475.0" y2="469.0"></line><line stroke="black" stroke-width="1.0" x1="258.0" x2="273.0" y1="475.0" y2="481.0"></line><g transform="translate(258.0,475.0)"><circle fill="white" r="3.5" stroke="black" stroke-width="1.0"></circle></g></g><g class="mandatory"><line stroke="black" stroke-width="1.0" x1="217.0" x2="217.0" y1="469.0" y2="481.0"></line></g></g><g class="reference"><polyline fill="none" points="605.0,484.0 605.0,505.0 392.0,505.0 392.0,486.0" stroke="black" stroke-linejoin="miter"></polyline><g class="cardinality"><line stroke="black" stroke-width="1.0" x1="469.0" x2="454.0" y1="505.0" y2="499.0"></line><line stroke="black" stroke-width="1.0" x1="469.0" x2="454.0" y1="505.0" y2="511.0"></line><g transform="translate(469.0,505.0)"><circle fill="white" r="3.5" stroke="black" stroke-width="1.0"></circle></g></g><g class="mandatory"><line stroke="black" stroke-width="1.0" x1="546.0" x2="546.0" y1="499.0" y2="511.0"></line></g></g><g class="reference"><polyline fill="none" points="363.0,473.0 363.0,275.0 252.0,275.0" stroke="black" stroke-linejoin="miter"></polyline><g class="cardinality"><line stroke="black" stroke-width="1.0" x1="363.0" x2="357.0" y1="310.0" y2="295.0"></line><line stroke="black" stroke-width="1.0" x1="363.0" x2="369.0" y1="310.0" y2="295.0"></line><g transform="translate(363.0,310.0)"><circle fill="white" r="3.5" stroke="black" stroke-width="1.0"></circle></g></g><g class="mandatory"><line stroke="black" stroke-width="1.0" x1="357.0" x2="369.0" y1="421.0" y2="421.0"></line></g></g><g class="reference"><polyline fill="none" points="132.0,240.0 274.0,240.0" stroke="black" stroke-linejoin="miter"></polyline><g class="cardinality"><line stroke="black" stroke-width="1.0" x1="216.0" x2="231.0" y1="240.0" y2="234.0"></line><line stroke="black" stroke-width="1.0" x1="216.0" x2="231.0" y1="240.0" y2="246.0"></line><g transform="translate(216.0,240.0)"><circle fill="white" r="3.5" stroke="black" stroke-width="1.0"></circle></g></g><g class="mandatory"><g transform="translate(187.0,240.0)"><circle fill="white" r="3.5" stroke="black" stroke-width="1.0"></circle></g></g></g><g class="reference"><polyline fill="none" points="138.0,217.0 325.0,217.0 325.0,183.0 319.0,183.0" stroke="black" stroke-linejoin="miter"></polyline><g class="cardinality"><line stroke="black" stroke-width="1.0" x1="216.0" x2="231.0" y1="217.0" y2="211.0"></line><line stroke="black" stroke-width="1.0" x1="216.0" x2="231.0" y1="217.0" y2="223.0"></line><g transform="translate(216.0,217.0)"><circle fill="white" r="3.5" stroke="black" stroke-width="1.0"></circle></g></g><g class="mandatory"><g transform="translate(187.0,217.0)"><circle fill="white" r="3.5" stroke="black" stroke-width="1.0"></circle></g></g></g><g class="reference"><polyline fill="none" points="314.0,58.0 364.0,58.0 364.0,205.0" stroke="black" stroke-linejoin="miter"></polyline><g class="cardinality"><line stroke="black" stroke-width="1.0" x1="364.0" x2="358.0" y1="121.0" y2="136.0"></line><line stroke="black" stroke-width="1.0" x1="364.0" x2="370.0" y1="121.0" y2="136.0"></line><g transform="translate(364.0,121.0)"><circle fill="white" r="3.5" stroke="black" stroke-width="1.0"></circle></g></g><g class="mandatory"><g transform="translate(364.0,83.0)"><circle fill="white" r="3.5" stroke="black" stroke-width="1.0"></circle></g></g></g><g class="reference"><polyline fill="none" points="634.0,346.0 634.0,175.0 656.0,175.0" stroke="black" stroke-linejoin="miter"></polyline><g class="cardinality"><line stroke="black" stroke-width="1.0" x1="634.0" x2="628.0" y1="248.0" y2="233.0"></line><line stroke="black" stroke-width="1.0" x1="634.0" x2="640.0" y1="248.0" y2="233.0"></line><g transform="translate(634.0,248.0)"><circle fill="white" r="3.5" stroke="black" stroke-width="1.0"></circle></g></g><g class="mandatory"><line stroke="black" stroke-width="1.0" x1="628.0" x2="640.0" y1="284.0" y2="284.0"></line></g></g><g class="reference"><polyline fill="none" points="297.0,165.0 624.0,165.0 624.0,202.0 586.0,202.0" stroke="black" stroke-linejoin="miter"></polyline><g class="cardinality"><line stroke="black" stroke-width="1.0" x1="546.0" x2="561.0" y1="165.0" y2="159.0"></line><line stroke="black" stroke-width="1.0" x1="546.0" x2="561.0" y1="165.0" y2="171.0"></line><g transform="translate(546.0,165.0)"><circle fill="white" r="3.5" stroke="black" stroke-width="1.0"></circle></g></g><g class="mandatory"><line stroke="black" stroke-width="1.0" x1="501.0" x2="501.0" y1="159.0" y2="171.0"></line></g></g><g class="reference"><polyline fill="none" points="444.0,475.0 518.0,475.0 518.0,201.0 571.0,201.0" stroke="black" stroke-linejoin="miter"></polyline><g class="cardinality"><line stroke="black" stroke-width="1.0" x1="546.0" x2="561.0" y1="201.0" y2="195.0"></line><line stroke="black" stroke-width="1.0" x1="546.0" x2="561.0" y1="201.0" y2="207.0"></line><g transform="translate(546.0,201.0)"><circle fill="white" r="3.5" stroke="black" stroke-width="1.0"></circle></g></g><g class="mandatory"><line stroke="black" stroke-width="1.0" x1="469.0" x2="469.0" y1="469.0" y2="481.0"></line></g></g><g class="table" transform="translate(10.0,407.0)"><g transform="translate(0.0,0.0)"><rect fill="#f0f0f0" height="20.0" width="192.0"></rect></g><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" x="97.0" y="14.1888671875">movie</text></g><g transform="translate(0.0,20.0)"><rect fill="#ffffff" height="96.0" width="192.0"></rect><g transform="translate(4.0,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">id</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">title</text></g><g transform="translate(0.0,28.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">director</text></g><g transform="translate(0.0,42.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">cast</text></g><g transform="translate(0.0,56.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">description</text></g><g transform="translate(0.0,70.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">duration_min</text></g></g><g transform="translate(88.25,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">int</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">varchar(256)</text></g><g transform="translate(0.0,28.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">varchar(256)</text></g><g transform="translate(0.0,42.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">varchar(1024)</text></g><g transform="translate(0.0,56.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">text</text></g><g transform="translate(0.0,70.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">int</text></g></g><g transform="translate(173.5,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">PK</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375"></text></g><g transform="translate(0.0,28.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">N</text></g><g transform="translate(0.0,42.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">N</text></g><g transform="translate(0.0,56.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">N</text></g><g transform="translate(0.0,70.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">N</text></g></g></g><polyline fill="none" points="0.0,20.0 0.0,0.0 192.0,0.0 192.0,20.0 0.0,20.0 0.0,116.0 192.0,116.0 192.0,20.0" stroke="black" stroke-linejoin="miter"></polyline></g><g class="table" transform="translate(10.0,186.0)"><g transform="translate(0.0,0.0)"><rect fill="#f0f0f0" height="20.0" width="162.0"></rect></g><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" x="82.0" y="14.1888671875">employee</text></g><g transform="translate(0.0,20.0)"><rect fill="#ffffff" height="53.0" width="162.0"></rect><g transform="translate(4.0,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">id</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">username</text></g><g transform="translate(0.0,28.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">password</text></g></g><g transform="translate(66.0,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">int</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">varchar(32)</text></g><g transform="translate(0.0,28.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">varchar(100)</text></g></g><g transform="translate(143.5,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">PK</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375"></text></g><g transform="translate(0.0,28.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375"></text></g></g></g><polyline fill="none" points="0.0,20.0 0.0,0.0 162.0,0.0 162.0,20.0 0.0,20.0 0.0,73.0 162.0,73.0 162.0,20.0" stroke="black" stroke-linejoin="miter"></polyline></g><g class="table" transform="translate(561.0,299.0)"><g transform="translate(0.0,0.0)"><rect fill="#f0f0f0" height="20.0" width="154.0"></rect></g><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" x="78.0" y="14.1888671875">seat</text></g><g transform="translate(0.0,20.0)"><rect fill="#ffffff" height="68.0" width="154.0"></rect><g transform="translate(4.0,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">id</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">row</text></g><g transform="translate(0.0,28.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">number</text></g><g transform="translate(0.0,42.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">auditorium_id</text></g></g><g transform="translate(116.0,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">int</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">int</text></g><g transform="translate(0.0,28.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">int</text></g><g transform="translate(0.0,42.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">int</text></g></g><g transform="translate(135.5,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">PK</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375"></text></g><g transform="translate(0.0,28.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375"></text></g><g transform="translate(0.0,42.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">FK</text></g></g></g><polyline fill="none" points="0.0,20.0 0.0,0.0 154.0,0.0 154.0,20.0 0.0,20.0 0.0,88.0 154.0,88.0 154.0,20.0" stroke="black" stroke-linejoin="miter"></polyline></g><g class="table" transform="translate(561.0,450.0)"><g transform="translate(0.0,0.0)"><rect fill="#f0f0f0" height="20.0" width="154.0"></rect></g><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" x="78.0" y="14.1888671875">auditorium</text></g><g transform="translate(0.0,20.0)"><rect fill="#ffffff" height="53.0" width="154.0"></rect><g transform="translate(4.0,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">id</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">name</text></g><g transform="translate(0.0,28.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">seats_no</text></g></g><g transform="translate(65.5,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">int</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">varchar(32)</text></g><g transform="translate(0.0,28.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">int</text></g></g><g transform="translate(135.5,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">PK</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375"></text></g><g transform="translate(0.0,28.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375"></text></g></g></g><polyline fill="none" points="0.0,20.0 0.0,0.0 154.0,0.0 154.0,20.0 0.0,20.0 0.0,73.0 154.0,73.0 154.0,20.0" stroke="black" stroke-linejoin="miter"></polyline></g><g class="table" transform="translate(273.0,436.0)"><g transform="translate(0.0,0.0)"><rect fill="#f0f0f0" height="20.0" width="181.0"></rect></g><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" x="91.5" y="14.1888671875">screening</text></g><g transform="translate(0.0,20.0)"><rect fill="#ffffff" height="67.0" width="181.0"></rect><g transform="translate(4.0,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">id</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">movie_id</text></g><g transform="translate(0.0,28.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">auditorium_id</text></g><g transform="translate(0.0,42.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">screening_star</text></g></g><g transform="translate(96.5,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">int</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">int</text></g><g transform="translate(0.0,28.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">int</text></g><g transform="translate(0.0,42.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">timestamp</text></g></g><g transform="translate(162.5,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">PK</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">FK</text></g><g transform="translate(0.0,28.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">FK</text></g><g transform="translate(0.0,42.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375"></text></g></g></g><polyline fill="none" points="0.0,20.0 0.0,0.0 181.0,0.0 181.0,20.0 0.0,20.0 0.0,87.0 181.0,87.0 181.0,20.0" stroke="black" stroke-linejoin="miter"></polyline></g><g class="table" transform="translate(270.0,10.0)"><g transform="translate(0.0,0.0)"><rect fill="#f0f0f0" height="20.0" width="195.0"></rect></g><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" x="98.5" y="14.1888671875">reservation_type</text></g><g transform="translate(0.0,20.0)"><rect fill="#ffffff" height="38.0" width="195.0"></rect><g transform="translate(4.0,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">id</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">reservation_type</text></g></g><g transform="translate(106.5,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">int</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">varchar(32)</text></g></g><g transform="translate(176.5,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">PK</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375"></text></g></g></g><polyline fill="none" points="0.0,20.0 0.0,0.0 195.0,0.0 195.0,20.0 0.0,20.0 0.0,58.0 195.0,58.0 195.0,20.0" stroke="black" stroke-linejoin="miter"></polyline></g><g class="table" transform="translate(231.0,136.0)"><g transform="translate(0.0,0.0)"><rect fill="#f0f0f0" height="20.0" width="255.0"></rect></g><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" x="128.5" y="14.1888671875">reservation</text></g><g transform="translate(0.0,20.0)"><rect fill="#ffffff" height="139.0" width="255.0"></rect><g transform="translate(4.0,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">id</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">screening_id</text></g><g transform="translate(0.0,28.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">employee_reserved_id</text></g><g transform="translate(0.0,42.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">reservation_type_id</text></g><g transform="translate(0.0,56.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">reservation_contact</text></g><g transform="translate(0.0,70.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">reserved</text></g><g transform="translate(0.0,84.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">employee_paid_id</text></g><g transform="translate(0.0,98.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">paid</text></g><g transform="translate(0.0,112.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">active</text></g></g><g transform="translate(138.75,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">int</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">int</text></g><g transform="translate(0.0,28.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">int</text></g><g transform="translate(0.0,42.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">int</text></g><g transform="translate(0.0,56.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">varchar(1024)</text></g><g transform="translate(0.0,70.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">bool</text></g><g transform="translate(0.0,84.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">int</text></g><g transform="translate(0.0,98.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">bool</text></g><g transform="translate(0.0,112.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">bool</text></g></g><g transform="translate(224.0,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">PK</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">FK</text></g><g transform="translate(0.0,28.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">N FK</text></g><g transform="translate(0.0,42.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">N FK</text></g><g transform="translate(0.0,56.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375"></text></g><g transform="translate(0.0,70.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">N</text></g><g transform="translate(0.0,84.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">N FK</text></g><g transform="translate(0.0,98.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">N</text></g><g transform="translate(0.0,112.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375"></text></g></g></g><polyline fill="none" points="0.0,20.0 0.0,0.0 255.0,0.0 255.0,20.0 0.0,20.0 0.0,159.0 255.0,159.0 255.0,20.0" stroke="black" stroke-linejoin="miter"></polyline></g><g class="table" transform="translate(561.0,146.0)"><g transform="translate(0.0,0.0)"><rect fill="#f0f0f0" height="20.0" width="154.0"></rect></g><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" x="78.0" y="14.1888671875">seat_reserved</text></g><g transform="translate(0.0,20.0)"><rect fill="#ffffff" height="67.0" width="154.0"></rect><g transform="translate(4.0,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">id</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">seat_id</text></g><g transform="translate(0.0,28.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">reservation_id</text></g><g transform="translate(0.0,42.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">screening_id</text></g></g><g transform="translate(116.0,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">int</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">int</text></g><g transform="translate(0.0,28.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">int</text></g><g transform="translate(0.0,42.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">int</text></g></g><g transform="translate(135.5,3.0)"><g transform="translate(0.0,0.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">PK</text></g><g transform="translate(0.0,14.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">FK</text></g><g transform="translate(0.0,28.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">FK</text></g><g transform="translate(0.0,42.0)"><text font-family="arial, sans-serif" font-size="12" font-weight="400" x="1.0" y="11.40234375">FK</text></g></g></g><polyline fill="none" points="0.0,20.0 0.0,0.0 154.0,0.0 154.0,20.0 0.0,20.0 0.0,87.0 154.0,87.0 154.0,20.0" stroke="black" stroke-linejoin="miter"></polyline></g></g></svg></div></div></div>
+
+      <br><br>
+
+
+<p>Short table structure descriptions are given below:</p>
+
+<ol style="margin-top: 10px">
+
+  <li style="padding-bottom: 20px">
+    <p>The <code><strong>movie</strong></code> table contains data about movies which will be shown in the theater. The primary key is <code>id</code>, which is auto_incremented like all primary keys in all other tables. The only mandatory data is <code>title</code>.</p> 
+
+<p style="text-align: center;"> 
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <img src="./er diagram_files/table-movie.png" alt="Table movie" class="">
+
+ </p>
+
+    <p>All fields have meanings according to their name. The column <code>duration_min</code> could be used to disable inserting a new screening or to show an alert message in case we want to enter a screening in an auditorium where the previous screening is still in progress: <br>
+      <code style="letter-spacing: -1px;">previous screening start time + duration_min of  it &gt; this screening start time</code></p>
+	</li>
+	
+	<li style="padding-bottom: 20px">
+    <p>The <code><strong>auditorium</strong></code> table identifies all auditoriums in theater. All data is mandatory.</p>
+
+<p style="text-align: center;"> 
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <img src="./er diagram_files/table-auditorium.png" alt="Table auditorium" class="">
+
+ </p>
+
+ 
+    <p>The <code>seats_no</code> field can be used to calculate percentage of availability of auditoriums for a selected screening/movie/auditorium/date range. This is an example of <strong>data redundancy</strong> because we could get the number of seats for each auditorium by counting them in the <code><strong>seat</strong></code> table. In this example it might not improve performance significantly. I show it here as an idea that could help with designing more complex models. If we set up the database this way we must bear in mind that if we change one piece of data, we also have to change others. If we add or delete data from the <code>seat</code> table we have to adjust values <code>seats_no</code> in the <code><strong>auditorium</strong></code> table. </p> 
+	</li>
+	
+	<li style="padding-bottom: 20px">
+    <p>The <code><strong>screening</strong></code> table contains data of all screenings and all fields are mandatory. A screening must have a related movie, auditorium and start time. We can’t have two showings in same auditorium at the same time. We can define a unique key consisting of <code>auditorium_id</code> and <code>screening_start</code>. This setup is better than defining a unique key consisting of <code>movie_id</code>, <code>auditorium_id</code>, and <code>screening_start</code> because that would allow us to enter screenings of two different movies at the same time in the same auditorium.</p>  
+
+<p style="text-align: center;"> 
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <img src="./er diagram_files/table-screening.png" alt="Table screening" class="">
+
+ </p>
+
+<p>Vertabelo SQL preview code for this table looks like this (notice Screening_ak_1):</p>
+
+<div><div id="highlighter_673156" class="syntaxhighlighter nogutter  sql"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql comments">-- Tables</code></div><div class="line number2 index1 alt1"><code class="sql comments">-- Table screening</code></div><div class="line number3 index2 alt2"><code class="sql keyword">CREATE</code> <code class="sql keyword">TABLE</code> <code class="sql plain">screening (</code></div><div class="line number4 index3 alt1"><code class="sql spaces">&nbsp;&nbsp;&nbsp;</code><code class="sql plain">id </code><code class="sql keyword">int</code>&nbsp;&nbsp;&nbsp; <code class="sql color1">NOT</code> <code class="sql color1">NULL</code>&nbsp; <code class="sql plain">AUTO_INCREMENT,</code></div><div class="line number5 index4 alt2"><code class="sql spaces">&nbsp;&nbsp;&nbsp;</code><code class="sql plain">movie_id </code><code class="sql keyword">int</code>&nbsp;&nbsp;&nbsp; <code class="sql color1">NOT</code> <code class="sql color1">NULL</code> <code class="sql plain">,</code></div><div class="line number6 index5 alt1"><code class="sql spaces">&nbsp;&nbsp;&nbsp;</code><code class="sql plain">auditorium_id </code><code class="sql keyword">int</code>&nbsp;&nbsp;&nbsp; <code class="sql color1">NOT</code> <code class="sql color1">NULL</code> <code class="sql plain">,</code></div><div class="line number7 index6 alt2"><code class="sql spaces">&nbsp;&nbsp;&nbsp;</code><code class="sql plain">screening_start </code><code class="sql keyword">timestamp</code>&nbsp;&nbsp;&nbsp; <code class="sql color1">NOT</code> <code class="sql color1">NULL</code> <code class="sql plain">,</code></div><div class="line number8 index7 alt1"><code class="sql spaces">&nbsp;&nbsp;&nbsp;</code><code class="sql keyword">UNIQUE</code> <code class="sql keyword">INDEX</code> <code class="sql plain">Screening_ak_1 (movie_id,auditorium_id,screening_start),</code></div><div class="line number9 index8 alt2"><code class="sql spaces">&nbsp;&nbsp;&nbsp;</code><code class="sql keyword">CONSTRAINT</code> <code class="sql plain">Screening_pk </code><code class="sql keyword">PRIMARY</code> <code class="sql keyword">KEY</code> <code class="sql plain">(id)</code></div><div class="line number10 index9 alt1"><code class="sql plain">);</code></div></div></td></tr></tbody></table></div></div>
+	</li>
+	
+	<li style="padding-bottom: 20px">
+    <p>The <code><strong>seat</strong></code> table contains a list of all seats we have in auditoriums with each seat assigned to strictly one auditorium. All fields are mandatory.</p>
+
+<p style="text-align: center;"> 
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <img src="./er diagram_files/table-seat.png" alt="Table seat" class="">
+
+ </p>
+
+ 	</li>
+	
+	<li style="padding-bottom: 20px">
+    <p>The <code><strong>reservation_type</strong></code> table is a dictionary of all reservation types (by phone, online, in person). All fields are mandatory.</p>
+
+<p style="text-align: center;"> 
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <img src="./er diagram_files/table-reservation_type.png" alt="Table reservation_type" class="">
+
+ </p>
+
+	</li>
+	
+	<li style="padding-bottom: 20px"> 
+    <p>The <code><strong>employee</strong></code> table lists all employees using the system. All fields are mandatory.</p>
+
+<p style="text-align: center;"> 
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <img src="./er diagram_files/table-employee.png" alt="Table employee" class="">
+
+ </p>
+ 
+<p>In complex systems there are usually more roles so we need to have a role dictionary and employee/user-role connection. In our example we have only one role: the same person inserts reservations and sells tickets.</p>
+	</li>
+	
+	<li style="padding-bottom: 20px">
+    <p>The <code><strong>reservation</strong></code> and <code><strong>seat_reserved</strong></code> tables are the main tables of our system. This is why I listed them last. All other tables can exist without reservation tables but without the reservation tables we would lose the reason for designing the whole database in the first place.</p>  
+
+<p style="text-align: center;"> 
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <img src="./er diagram_files/table-reservation.png" alt="Table reservation" class="">
+
+ </p>
+ 
+    <p>The <code><strong>reservation</strong></code> table stores data about a ticket reservation and/or sale. If we have a reservation, the attribute <code>reserved</code> would be set to True, the <code>reservation_type_id</code> would be set according to the origin of the reservation and the <code>employee_reserved_id</code> would contain the <code>id_employee</code> value of the person who entered data (it would be empty if the reservation had been done online by the customer). In the same way, if tickets were sold, the <code>employee_paid_id</code> would be filled with the <code>id_employee</code> value of the person who sold tickets, the attribute paid would be set to True. The active attribute identifies if a record is still valid. If tickets were sold this attribute would always be True and the reservation without sales would be active until 30 min before screening starts </p>
+
+<p style="text-align: center;"> 
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <img src="./er diagram_files/table-seat_reserved.png" alt="Table seat_reserved" class="">
+
+ </p>
+ 
+    <p>The <code><strong>seat_reserved</strong></code> table enables us to make a reservation or one payment for multiple seats. After the employee checks a few free seats on the interface, one record would be added to this table for each of them. If we want to check which seats are free or taken we can check the values in this table joined to the <code><strong>reservation</strong></code> table where <code>reservation.active = True</code>.</p> 
+	</li>
+  
+</ol>
+
+<p>It is worth mentioning: </p>
+
+<ul style="margin-top: 10px">
+  <li><code>employee_reserved_id</code> is not mandatory because a reservation might not exist for a seat (a ticket for a seat is sold without a previous reservation) or is done online</li>
+  <li><code>reservation_type_id</code> is a foreign key referencing the reservation type’s “id”. It is not mandatory because a reservation might not exist  (in case we made a sale without a previous reservation)</li>
+  <li><code>reservation_contact</code> is a text input field for storing data of a person who made a reservation, it is not mandatory because a reservation might not exist  (in case we made a sale without a previous reservation)</li>
+  <li><code>employee_paid_id</code> is related to a user who made a sale, it is not mandatory because a sale might not have happened (seat was reserved, reservation was canceled automatically, seat has not been sold)</li>
+  <li><code>paid</code> is a flag that indicates that payment has happened  and is mandatory (values can be Yes/True or No/False)</li>
+</ul>
+
+
+<p>In the end, bear in mind that nobody likes to find somebody else in his seat:</p>
+
+      <p style="text-align: center; margin: 30px 0;"> 
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <img src="./er diagram_files/Iron-Throne.jpg" alt="Iron Throne" class="">
+
+ </p>
+
+      
+      
+<div style="z-index: 100; height: 3px; background-color: rgb(241, 241, 241); position: fixed; width: 100%; top: 0px; left: 0px;"><div style="position: absolute; width: 42.8336%; height: 100%; background-color: rgb(0, 109, 255); transition: width 0.3s linear 0s;"></div></div></div>
+    </div>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+ },
+ "headline": "How to Design a Database Model for a Movie Theater Reservation System",
+ "image": [
+      "https://vertabelo.com/blog/a-database-model-for-a-movie-theater-reservation-system/buy-theater-tickets-online.png"
+ ],
+ "datePublished": "2015-07-31T00:00:00+00:00",
+ "dateModified": "2016-03-03T00:00:00+00:00",
+ "author": {
+    "@type": "Person",
+    "name": "Emil Drkušić"
+ },
+ "publisher": {
+    "@type": "Organization",
+    "name": "Vertabelo",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vertabelo.com/blog-img/logo_dark.png"
+    }
+ },
+ "description": "Do you like going to the movies? Have you ever considered what the database design behind their reservation system looks like? In this article we’ll prepare an example database model for a movie theater."
+}
+</script>
+
+    <div class="blog-post-tags-below">
+      
+<div class="summary-tags">
+  <ul class="summary-tags-list">
+      <div class="summary-tags-title">Tags:</div>
+      
+       <li class="summary-tags-list-element">
+         <a href="https://vertabelo.com/tags/example-data-model">example data model</a>
+       </li>
+      
+       <li class="summary-tags-list-element">
+         <a href="https://vertabelo.com/tags/example-er-diagram">example ER diagram</a>
+       </li>
+      
+       <li class="summary-tags-list-element">
+         <a href="https://vertabelo.com/tags/example-erd-diagram">example ERD diagram</a>
+       </li>
+      
+       <li class="summary-tags-list-element">
+         <a href="https://vertabelo.com/tags/database-model">database model</a>
+       </li>
+      
+       <li class="summary-tags-list-element">
+         <a href="https://vertabelo.com/tags/template">template</a>
+       </li>
+      
+       <li class="summary-tags-list-element">
+         <a href="https://vertabelo.com/tags/tutorial">tutorial</a>
+       </li>
+      
+       <li class="summary-tags-list-element">
+         <a href="https://vertabelo.com/tags/database-design">database design</a>
+       </li>
+      
+    </ul>
+</div>
+
+
+      
+    </div>
+      <div class="blog-post-newsletter" style="background-image:url(/blog-img/Bg.png)"> 
+         <div class="newsletter_content">
+            <span class="newsletter_title">Subscribe to our newsletter</span>
+            <span class="newsletter_subtitle">Join our weekly newsletter to be <br> notified about the latest posts.</span>
+            <input class="newsletter_email" id="email" placeholder="Email address"> 
+            <a href="https://vertabelo.com/blog/a-database-model-for-a-movie-theater-reservation-system/#" class="button newsletter_button">Subscribe</a>
+         </div>
+      </div> 
+
+    <div class="blog-post-see-also blog-post-container"></div>
+    <div class="post-navigation blog-post-container">
+      
+       
+      
+    </div>
+<div class="related-posts ">
+  <h3>You may also like</h3>
+  <div class="related-posts__content row blog-post-container">
+  
+    
+    
+    
+    <div class="related-posts__item">
+      <a href="https://vertabelo.com/blog/9-tips-for-better-database-design/">
+      
+        
+        
+          
+        
+        
+        
+        <div class="related-posts__image" style="background-image:url(&#39;/blog/9-tips-for-better-database-design/reviewing-database-model_hue809db5660ca1175632b60d3b363f26f_463882_455x310_fill_box_center_2.png&#39;)"></div>
+        
+      
+      </a><a class="blog-post-category" href="https://vertabelo.com/blog/design_fundamentals">Design fundamentals</a>
+
+
+      <a href="https://vertabelo.com/blog/9-tips-for-better-database-design/">
+        <h4>Tips for Better Database Design</h4>
+      </a>
+      
+      <div class="summary-read-more blog-list"><a class="summary-read-more-link" href="https://vertabelo.com/blog/9-tips-for-better-database-design/">Read more</a> </div>
+
+    </div>
+    
+  
+    
+    
+    
+    <div class="related-posts__item">
+      <a href="https://vertabelo.com/blog/database-design-more-than-just-an-erd/">
+      
+        
+        
+          
+        
+        
+        
+        <div class="related-posts__image" style="background-image:url(&#39;/blog/database-design-more-than-just-an-erd/data-modeler-coloring-an-entity-relationship-diagram_hub7ebb4490652787b703c73fd23444d4e_347107_455x310_fill_box_center_2.png&#39;)"></div>
+        
+      
+      </a><a class="blog-post-category" href="https://vertabelo.com/blog/design_fundamentals">Design fundamentals</a>
+
+
+      <a href="https://vertabelo.com/blog/database-design-more-than-just-an-erd/">
+        <h4>Database Design: More Than Just an ERD</h4>
+      </a>
+      
+      <div class="summary-read-more blog-list"><a class="summary-read-more-link" href="https://vertabelo.com/blog/database-design-more-than-just-an-erd/">Read more</a> </div>
+
+    </div>
+    
+  
+    
+    
+    
+    <div class="related-posts__item">
+      <a href="https://vertabelo.com/blog/5-steps-for-an-effective-database-model/">
+      
+        
+        
+          
+        
+        
+        
+        <div class="related-posts__image" style="background-image:url(&#39;/blog/5-steps-for-an-effective-database-model/effective-database-modeling_hudd5c5c68b2eb6d373b095130cee97d21_176768_455x310_fill_box_center_2.png&#39;)"></div>
+        
+      
+      </a><a class="blog-post-category" href="https://vertabelo.com/blog/design_fundamentals">Design fundamentals</a>
+
+
+      <a href="https://vertabelo.com/blog/5-steps-for-an-effective-database-model/">
+        <h4>5 Steps for an Effective Database Model</h4>
+      </a>
+      
+      <div class="summary-read-more blog-list"><a class="summary-read-more-link" href="https://vertabelo.com/blog/5-steps-for-an-effective-database-model/">Read more</a> </div>
+
+    </div>
+    
+  
+    
+    
+    
+    <div class="related-posts__item">
+      <a href="https://vertabelo.com/blog/data-modeling-in-agile-development-one-data-modelers-experience/">
+      
+        
+        
+          
+        
+        
+        
+        <div class="related-posts__image" style="background-image:url(&#39;/blog/data-modeling-in-agile-development-one-data-modelers-experience/team-co-operation_hue409ad106f62ac55ff7beca52fc36dc4_555468_455x310_fill_box_center_2.png&#39;)"></div>
+        
+      
+      </a><a class="blog-post-category" href="https://vertabelo.com/blog/others">Others</a>
+
+
+      <a href="https://vertabelo.com/blog/data-modeling-in-agile-development-one-data-modelers-experience/">
+        <h4>Data Modeling in Agile Development: One Data Modeler’s Experience</h4>
+      </a>
+      
+      <div class="summary-read-more blog-list"><a class="summary-read-more-link" href="https://vertabelo.com/blog/data-modeling-in-agile-development-one-data-modelers-experience/">Read more</a> </div>
+
+    </div>
+    
+  
+    
+    
+    
+  
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<aside>
+
+
+    </aside>
+  </article>
+
+  <a class="to-top home sticky_scroll" href="https://vertabelo.com/blog/a-database-model-for-a-movie-theater-reservation-system/#top" style="display: inline;">
+    <img src="./er diagram_files/Arrow.png" alt="go to top">
+</a>
+</div>
+
+
+
+
+  
+    
+
+
+<footer class="site-footer" id="footer" role="contentinfo">
+ 
+  <h3 class="screen-reader-text">Site Footer</h3>
+  <div class="site-footer__content">
+    <div class="site-footer__container">
+        <img class="site-footer_signet" src="./er diagram_files/Signet Vertabelo.png">
+        <div class="site-footer__row ">
+          <h4 class="site-footer__section-header">Quick links</h4>
+          <div class="site-footer__textwidget-quicklinks">
+            <span class="left-column">
+              <a class="site-footer__footer-link" href="https://vertabelo.com/blog" title="How to Design a Database Model for a Movie Theater Reservation System page">Vertabelo Blog</a><br>
+              <a class="site-footer__footer-link" href="https://vertabelo.com/documentation">Documentation</a><br>
+              <a class="site-footer__footer-link" href="https://vertabelo.com/pricing/#faq">FAQ</a><br>
+            </span>
+            <span class="right-column">
+              <a class="site-footer__footer-link" href="https://vertabelo.com/features">Features</a><br>
+              <a class="site-footer__footer-link" href="https://vertabelo.com/pricing">Pricing</a><br>
+              <a class="site-footer__footer-link" href="https://vertabelo.com/academy">Academy</a><br>
+            </span>
+          </div>
+        </div>
+        <div class="site-footer__row ">
+          <h4 class="site-footer__section-header">Support</h4>
+          <div class="site-footer__textwidget-support">If you have any questions or you need our help, you can contact us through
+            our </div>
+         <a class="site-footer__button-support site-footer__footer-link" href="http://support.vertabelo.com/">Support site</a>
+        </div>
+        <div class="site-footer__row ">
+          <h4 class="site-footer__section-header">Follow Us</h4>
+          <span class="site-footer__section-header-social">
+            <a class="site-footer__section-header-footer-followus" href="https://twitter.com/vertabelo"> <img src="./er diagram_files/twitter.png"></a>
+            <a class="site-footer__section-header-footer-followus" href="https://plus.google.com/+Vertabelo"> <img src="./er diagram_files/google+.png"></a>
+            <a class="site-footer__section-header-footer-followus" href="https://www.youtube.com/user/vertabelo/featured">
+              <img src="./er diagram_files/youtube.png"></a>
+          </span>
+        </div>
+
+      </div>
+    </div>
+  
+  <div class="site-footer__horizontal-bar"></div>
+  <div class="row site-footer__credits">
+
+    <div class="site-footer__credits-copy"> Copyright ©2013-2018 <a class="site-footer__footer-link-active" href="http://www.vertabelo.com/">Vertabelo SA</a> All rights reserved </div>
+    <div class="site-footer__credits-terms">
+      <a class="site-footer__footer-link terms" href="https://vertabelo.com/terms-of-service.pdf">Terms of Service</a>
+      <a class="site-footer__footer-link terms" href="https://vertabelo.com/privacy-policy.pdf">Privacy Policy</a>
+      <a class="site-footer__footer-link terms" href="https://vertabelo.com/imprint">Imprint</a>
+      <a class="site-footer__footer-link terms" href="https://vertabelo.com/investor-relations">Investor relations</a>
+    </div>
+  </div>
+  
+  
+  
+  
+
+</footer>
+
+  
+
+</body></html>
